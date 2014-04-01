@@ -1,4 +1,5 @@
 Goofballs::Application.routes.draw do
+  get "home/index"
   resources :goofballs
 
   resources :addresses
