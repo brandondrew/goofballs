@@ -1,6 +1,5 @@
-<h1>Editing goofball</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @goofball %> |
-<%= link_to 'Back', goofballs_path %>
+<%- model_class = Goofball -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Goofball %></h1>
+</div>
+<%= render :partial => 'form' %>
