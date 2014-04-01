@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Address -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Address %></h1>
+</div>
 
-<p>
-  <strong>Street:</strong>
-  <%= @address.street %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:street) %></dt>
+      <dd><pre class="prettyprint"><%= @address.street %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:mail_stop) %></dt>
+      <dd><pre class="prettyprint"><%= @address.mail_stop %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:region) %></dt>
+      <dd><pre class="prettyprint"><%= @address.region %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:country) %></dt>
+      <dd><pre class="prettyprint"><%= @address.country %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:postal_code) %></dt>
+      <dd><pre class="prettyprint"><%= @address.postal_code %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Mail stop:</strong>
-  <%= @address.mail_stop %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              addresses_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_address_path(@address), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              address_path(@address),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Region:</strong>
-  <%= @address.region %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @address.country %>
-</p>
-
-<p>
-  <strong>Postal code:</strong>
-  <%= @address.postal_code %>
-</p>
-
-<%= link_to 'Edit', edit_address_path(@address) %> |
-<%= link_to 'Back', addresses_path %>
