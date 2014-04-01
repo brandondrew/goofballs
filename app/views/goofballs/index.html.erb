@@ -1,0 +1,27 @@
+<h1>Listing goofballs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @goofballs.each do |goofball| %>
+      <tr>
+        <td><%= goofball.user %></td>
+        <td><%= link_to 'Show', goofball %></td>
+        <td><%= link_to 'Edit', edit_goofball_path(goofball) %></td>
+        <td><%= link_to 'Destroy', goofball, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Goofball', new_goofball_path %>
